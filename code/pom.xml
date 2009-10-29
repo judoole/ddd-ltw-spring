@@ -43,6 +43,7 @@
 					<useSystemClassloader>true</useSystemClassloader>
 				</configuration>
 			</plugin>
+			<!-- Jetty -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>maven-jetty-plugin</artifactId>
@@ -51,6 +52,15 @@
 					<stopPort>9966</stopPort>
 					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<stopKey>foo</stopKey>
+				</configuration>
+			</plugin>
+			<!-- Tomcat -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.0-beta-1</version>
+				<configuration>
+					<url>http://www.mydomain.com:1234/mymanager</url>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -66,19 +76,34 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Needed while running tests -->
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-agent</artifactId>
 			<version>${spring.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+		<!-- The magic stuff of ltw -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+		<!-- Web stuff -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- More Tomcat -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tomcat-weaver</artifactId>
+			<version>${spring.version}</version>
+			<!-- <scope>runtime</scope> -->
 		</dependency>
 		<!-- TEST -->
 		<dependency>
