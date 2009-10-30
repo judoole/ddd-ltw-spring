@@ -1,9 +1,9 @@
-package no.bekk.examples.domain;
+package ltw.domain;
+
+import ltw.service.MailSender;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
-
-import no.bekk.examples.service.mail.MailSender;
 
 @Configurable
 public class Person {

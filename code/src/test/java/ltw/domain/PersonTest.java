@@ -1,4 +1,4 @@
-package no.bekk.examples.domain;
+package ltw.domain;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

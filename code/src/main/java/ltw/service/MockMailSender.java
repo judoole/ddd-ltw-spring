@@ -1,8 +1,6 @@
-package no.bekk.examples.service.mail.mock;
+package ltw.service;
 
 import org.springframework.stereotype.Service;
-
-import no.bekk.examples.service.mail.MailSender;
 
 @Service
 public class MockMailSender implements MailSender {
