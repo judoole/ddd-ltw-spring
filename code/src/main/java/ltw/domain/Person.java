@@ -1,6 +1,6 @@
 package ltw.domain;
 
-import ltw.service.MailSender;
+import ltw.service.NameGeneratorService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -8,16 +8,21 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public class Person {
     @Autowired
-    private MailSender mailSender;
-    private String name;
-    private String emailAddressMom;
+    private NameGeneratorService nameGenerator;
+    private String firstname;
+    private String lastname;
+    private String nickName;
 
-    public Person(String name, String emailAddressMom) {
-        this.name = name;
-        this.emailAddressMom = emailAddressMom;
+    public Person(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
     }
-    
-    public void sendMailToMom(){
-        mailSender.sendMail(emailAddressMom, name);
+
+    public String getFullName() {
+        return firstname + " '" + getNickName() + "' " + lastname;
+    }
+
+    private String getNickName() {
+        return nickName == null ? nickName = nameGenerator.generateName() : nickName;
     }
 }

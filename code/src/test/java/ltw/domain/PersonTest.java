@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class PersonTest {
 
     @Test
-    public void testSendMailToMomDoesNotThrowNullPointer() {
-        new Person("Ole Christian", "mom@mommys.com").sendMailToMom();
+    public void testGetFullNameDoesNotThrowNullPointer() {
+        new Person("Ole Christian", "Langfjæran").getFullName();
     }
 
 }

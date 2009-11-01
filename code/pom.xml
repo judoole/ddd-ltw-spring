@@ -22,6 +22,7 @@
 				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
+					<wtpVersion>2.0</wtpVersion>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -60,7 +61,10 @@
 				<artifactId>tomcat-maven-plugin</artifactId>
 				<version>1.0-beta-1</version>
 				<configuration>
-					<url>http://www.mydomain.com:1234/mymanager</url>
+					<url>http://localhost:8080/manager</url>
+					<username>admin</username>
+					<password>admin</password>
+					<update>true</update>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -103,9 +107,26 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tomcat-weaver</artifactId>
 			<version>${spring.version}</version>
-			<!-- <scope>runtime</scope> -->
 		</dependency>
 		<!-- TEST -->
+		<!-- To remove annoying logging -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--
+			<dependency> <groupId>org.apache.tomcat</groupId>
+			<artifactId>catalina</artifactId> <version>6.0.18</version>
+			<scope>test</scope> </dependency> <dependency>
+			<groupId>org.apache.tomcat</groupId> <artifactId>coyote</artifactId>
+			<version>6.0.18</version> <scope>test</scope> </dependency>
+			<dependency> <groupId>org.apache.tomcat</groupId>
+			<artifactId>jasper</artifactId> <version>6.0.18</version>
+			<scope>test</scope> </dependency>
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
