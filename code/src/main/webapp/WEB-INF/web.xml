@@ -7,8 +7,9 @@
 	</context-param>
 
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener><!--
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
 
 	<servlet>
 		<servlet-name>ddd-ltw</servlet-name>
@@ -19,7 +20,11 @@
 
 	<servlet-mapping>
 		<servlet-name>ddd-ltw</servlet-name>
-		<url-pattern>*.form</url-pattern>
+		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 
---></web-app>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+
+</web-app>

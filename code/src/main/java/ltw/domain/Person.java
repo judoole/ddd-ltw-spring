@@ -25,4 +25,5 @@ public class Person {
     private String getNickName() {
         return nickName == null ? nickName = nameGenerator.generateName() : nickName;
     }
+
 }

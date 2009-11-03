@@ -1,4 +1,7 @@
-<Context >
-	<Loader
-		loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader" />
+<Context>
+	<!--
+		<Loader
+		loaderClass="org.springframework.instrument.classloading.tomcat.TomcatInstrumentableClassLoader"
+		/>
+	-->
 </Context>

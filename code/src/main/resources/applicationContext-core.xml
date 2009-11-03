@@ -7,13 +7,16 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context-2.5.xsd">
 
-	<!-- Scans for annotations with @Component, @Service, @Repository -->
-	<context:component-scan base-package="ltw.service" />
+	<!--
+		Scans for annotations with @Component, @Service, @Repository so that
+		we slimify our applicationContext.xml of all those beans
+	-->
+	<context:component-scan base-package="ltw" />
 
 	<!-- Weaving magic -->
 	<context:load-time-weaver />
 
-	<!-- A Facade -->
-	<bean id="mainFacade" class="ltw.facade.MainFacade" />
+	<!-- Spring MVC stuff -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 
 </beans>

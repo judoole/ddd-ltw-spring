@@ -22,7 +22,6 @@
 				<configuration>
 					<source>1.5</source>
 					<target>1.5</target>
-					<wtpVersion>2.0</wtpVersion>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -40,7 +39,7 @@
 					<forkMode>once</forkMode>
 					<argLine>
 						-javaagent:${settings.localRepository}/org/springframework/spring-agent/${spring.version}/spring-agent-${spring.version}.jar
-         </argLine>
+					</argLine>
 					<useSystemClassloader>true</useSystemClassloader>
 				</configuration>
 			</plugin>
@@ -51,7 +50,7 @@
 				<version>6.1.10</version>
 				<configuration>
 					<stopPort>9966</stopPort>
-					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<scanIntervalSeconds>4</scanIntervalSeconds>
 					<stopKey>foo</stopKey>
 				</configuration>
 			</plugin>
@@ -72,17 +71,18 @@
 
 	<!-- DEPENDENCIES -->
 	<dependencies>
-		<!-- COMPILE -->
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- The magic stuff of ltw -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
 		<!-- Needed while running tests -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -90,10 +90,17 @@
 			<version>${spring.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- The magic stuff of ltw -->
+
+		<!-- COMPILE -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<!-- To remove annoying logging -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-aspects</artifactId>
+			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- Web stuff -->
@@ -109,24 +116,6 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- TEST -->
-		<!-- To remove annoying logging -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>${spring.version}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<!--
-			<dependency> <groupId>org.apache.tomcat</groupId>
-			<artifactId>catalina</artifactId> <version>6.0.18</version>
-			<scope>test</scope> </dependency> <dependency>
-			<groupId>org.apache.tomcat</groupId> <artifactId>coyote</artifactId>
-			<version>6.0.18</version> <scope>test</scope> </dependency>
-			<dependency> <groupId>org.apache.tomcat</groupId>
-			<artifactId>jasper</artifactId> <version>6.0.18</version>
-			<scope>test</scope> </dependency>
-		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -139,6 +128,33 @@
 			<version>4.4</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+
 
 	</dependencies>
 </project>
