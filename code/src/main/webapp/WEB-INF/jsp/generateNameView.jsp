@@ -1,4 +1,3 @@
-<%@ page session="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<p>Your fully generated name is <c:out value="${name}"/></p>
+<p>Your newly and fully generated name is <strong><%=request.getAttribute("name") %></strong></p>
+
+<a href="javascript:location.reload(true)">Try again</a>

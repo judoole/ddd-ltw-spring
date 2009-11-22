@@ -1,1 +1,17 @@
 This is an easy-to-get place to put my Domain Driven Design tips and tricks using Load Time Weaving with Spring
+
+What does it do?
+Just a plain index.html that sends a firstname and surname to a Spring Controller
+The Spring Controller does this:
+@RequestMapping(method = GET)
+public ModelAndView generateName(@RequestParam("firstname") String firstname, @RequestParam("surname") String surname) {
+    Person person = new Person(firstname, surname);
+    return new ModelAndView("WEB-INF/jsp/generateNameView.jsp", "name", person.getFullName());
+}
+
+Magically Spring LoadTimeWeaves into the Person-object an interface that can generate Pirate-names.
+This is the magic-code:
+@Configurable
+public class Person {
+    @Autowired
+    private NameGeneratorService nameGenerator;
