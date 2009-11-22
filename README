@@ -15,3 +15,7 @@ This is the magic-code:
 public class Person {
     @Autowired
     private NameGeneratorService nameGenerator;
+
+Start the codeexample either by running jetty.sh or doing this:
+export MAVEN_OPTS="-javaagent:$HOME/.m2/repository/org/springframework/spring-agent/2.5.6/spring-agent-2.5.6.jar"
+mvn jetty:run
