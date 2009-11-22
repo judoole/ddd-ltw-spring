@@ -23,6 +23,7 @@ public class PersonTest {
     @Test()
     @Ignore
     public void testThatDoesNotCompute() {
+        // Mockito and ltw does not like eachother
         Person mock = mock(Person.class);
         mock.getFullName();
     }
