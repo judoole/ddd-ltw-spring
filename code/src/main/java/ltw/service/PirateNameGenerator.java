@@ -5,7 +5,7 @@ import java.util.Random;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PirateNameGenerator implements NameGeneratorService{
+public class PirateNameGenerator implements NameGeneratorAble{
 
     public String generateName() {
         String[] names = new String[]{"Cap'n Blaine Greenbeard", "Wally Knocknees", "Stutterin' Ross Smithe"};

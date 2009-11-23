@@ -1,6 +1,6 @@
 package ltw.domain;
 
-import ltw.service.NameGeneratorService;
+import ltw.service.NameGeneratorAble;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 @Configurable
 public class Person {
     @Autowired
-    private NameGeneratorService nameGenerator;
+    private NameGeneratorAble nameGenerator;
     private String firstname;
     private String lastname;
     private String nickName;
